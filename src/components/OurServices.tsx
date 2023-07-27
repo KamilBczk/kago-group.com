@@ -28,7 +28,7 @@ export default function OurServices() {
 
             <p className="mt-1 text-sm text-gray-300">
               Nous proposons des templates de sites modernes et qualitatifs que
-              l'on peut améliorer avec du développement sur mesure.
+              l&apos;on peut améliorer avec du développement sur mesure.
             </p>
           </a>
 

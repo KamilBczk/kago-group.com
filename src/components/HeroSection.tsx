@@ -16,7 +16,7 @@ function HeroSection() {
 
           <p className="mt-4 max-w-lg sm:text-xl/relaxed text-white">
             Découvrez notre marque exceptionnelle et réinventez votre expérience
-            digitale dès aujourd'hui !
+            digitale dès aujourd&apos;hui !
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4 text-center">
