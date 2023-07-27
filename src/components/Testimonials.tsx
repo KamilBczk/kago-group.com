@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function Testimonials() {
   return (
@@ -6,13 +7,13 @@ export default function Testimonials() {
       <div className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="py-16 sm:py-24">
           <h2 className="text-center text-2xl font-bold tracking-tight sm:text-2xl text-white">
-            Ce qu'on dit de nous
+            Ce qu&apos;on dit de nous
           </h2>
 
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
             <blockquote className="rounded-lg bg-gray-100 p-8">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   alt="Man"
                   src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
                   className="h-16 w-16 rounded-full object-cover"
@@ -76,7 +77,7 @@ export default function Testimonials() {
 
             <blockquote className="rounded-lg bg-gray-100 p-8">
               <div className="flex items-center gap-4">
-                <img
+                <Image
                   alt="Man"
                   src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
                   className="h-16 w-16 rounded-full object-cover"
