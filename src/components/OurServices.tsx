@@ -11,17 +11,13 @@ export default function OurServices() {
           <h2 className="text-3xl font-bold sm:text-4xl">Nos services</h2>
 
           <p className="mt-4 text-gray-300">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Consequuntur aliquam doloribus nesciunt eos fugiat. Vitae aperiam
-            fugit consequuntur saepe laborum.
+            Découvrez notre gamme complète de services conçus pour vous
+            propulser vers le succès en ligne !
           </p>
         </div>
 
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          <a
-            className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10"
-            href="/services/digital-campaigns"
-          >
+          <a className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10">
             <VscSymbolColor size={30} />
 
             <h2 className="mt-4 text-xl font-bold text-white">Design</h2>
@@ -32,10 +28,7 @@ export default function OurServices() {
             </p>
           </a>
 
-          <a
-            className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10"
-            href="/services/digital-campaigns"
-          >
+          <a className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10">
             <BiBadgeCheck size={30} />
 
             <h2 className="mt-4 text-xl font-bold text-white">Branding</h2>
@@ -46,10 +39,7 @@ export default function OurServices() {
             </p>
           </a>
 
-          <a
-            className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10"
-            href="/services/digital-campaigns"
-          >
+          <a className="block rounded-xl border border-white p-8 shadow-xl transition hover:border-pink-500/10 hover:shadow-white/10">
             <TbWorld size={30} />
             <h2 className="mt-4 text-xl font-bold text-white">Site web</h2>
 
@@ -63,10 +53,10 @@ export default function OurServices() {
 
         <div className="mt-12 text-center">
           <a
-            href="#"
-            className="inline-block rounded bg-white px-12 py-3 text-sm font-medium text-kago-blue transition hover:bg-pink-700 focus:outline-none focus:ring focus:ring-yellow-400"
+            href="#pricing"
+            className="border border-white inline-block rounded bg-white px-12 py-3 text-sm font-medium text-kago-blue transition hover:bg-kago-blue hover:text-white focus:outline-none focus:ring focus:ring-yellow-400"
           >
-            Get Started Today
+            Nos packages
           </a>
         </div>
       </div>

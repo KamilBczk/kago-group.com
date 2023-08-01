@@ -1,107 +1,59 @@
 import React from "react";
+import Image from "next/image";
+import bildConstruct from "@/assets/portfolio/bild-construct.png";
+import recreATifs from "@/assets/portfolio/recre-a-tifs.png";
+import tmfCompta from "@/assets/portfolio/tmf-compta.png";
+import vasiConstruct from "@/assets/portfolio/vasi-construct.png";
 
 export default function Portfolio() {
+  const cases = [
+    {
+      image: bildConstruct,
+      placeholderText: "Bild Construct SRL",
+      href: "https://bildconstructsrl.com",
+    },
+    {
+      image: recreATifs,
+      placeholderText: "Récré à tifs",
+      href: "https://google.com",
+    },
+    {
+      image: tmfCompta,
+      placeholderText: "TMF Compta",
+      href: "https://tmfcompta.be",
+    },
+    {
+      image: vasiConstruct,
+      placeholderText: "Vasi Construct SRL",
+      href: "https://google.com",
+    },
+  ];
+
   return (
-    <div className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+    <div
+      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8"
+      id="portfolio"
+    >
       <h2 className="text-2xl font-bold sm:text-3xl text-center my-5">
         Portfolio
       </h2>
-      <div className="container mx-auto py-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {/* Première ligne */}
-        <div className="grid gap-4">
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
+      {/* Première ligne */}
+      <div className="flex gap-4">
+        {cases.map((caseElem) => (
+          <div key={caseElem.href} className="relative overflow-hidden group">
+            <Image
+              src={caseElem.image}
               alt=""
               className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
+              loading="lazy"
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 1</p>
+              <p className="text-white text-lg font-bold">
+                {caseElem.placeholderText}
+              </p>
             </div>
           </div>
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 2</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Deuxième ligne */}
-        <div className="grid gap-4">
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 3</p>
-            </div>
-          </div>
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 4</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Troisième ligne */}
-        <div className="grid gap-4">
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 5</p>
-            </div>
-          </div>
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 6</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Quatrième ligne */}
-        <div className="grid gap-4">
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 7</p>
-            </div>
-          </div>
-          <div className="relative overflow-hidden group">
-            <img
-              src="https://placehold.co/600x400"
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">Texte 8</p>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

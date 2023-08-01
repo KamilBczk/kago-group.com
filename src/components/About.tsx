@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <section>
+    <section id="about">
       <div className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:h-400 lg:grid-cols-2">
           <div className="relative z-10 lg:py-16">
@@ -26,21 +26,24 @@ function About() {
               <p className="mt-4 text-gray-600">
                 KAGO a été fondé par deux entrepreneurs passionnés et
                 professionnels pour combler le manque de présence en ligne des
-                entreprises. Notre mission : les conseiller et les accompagner
-                dans leur transformation digitale. Avec une équipe expérimentée
-                de développeurs, project managers et designers, nous collaborons
-                étroitement avec nos clients pour analyser leurs besoins et
-                défis, offrant ainsi des solutions sur mesure : création de
-                sites web pro, stratégies de marketing numérique, formations, et
-                bien plus.
+                entreprises et pour en faire des marques à part entière.
+                <br />
+                Notre mission: les conseiller et les accompagner dans leur
+                transformation digitale.
+                <br />
+                Avec une équipe expérimentée de développeurs, Project managers
+                et designers, nous collaborons étroitement avec nos clients pour
+                analyser leurs besoins et défis, offrant ainsi des solutions sur
+                mesure: création de sites web pro, stratégies de marketing
+                numérique, formations, et bien plus.
               </p>
-
+              {/* 
               <a
                 href="#"
                 className="mt-8 inline-block rounded border border-kago-blue bg-kago-blue px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-kago-blue focus:outline-none focus:ring active:text-kago-blue"
               >
                 Get in Touch
-              </a>
+              </a> */}
             </div>
           </div>
         </div>

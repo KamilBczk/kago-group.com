@@ -27,11 +27,11 @@ const Header = () => {
   };
 
   const links = [
-    { id: "accueil", label: "Accueil" },
-    { id: "a-propos", label: "À Propos" },
-    { id: "portfolio", label: "Portfolio" },
-    { id: "nos-tarifs", label: "Nos Tarifs" },
-    { id: "contact", label: "Contact" },
+    { id: "accueil", label: "Accueil", href: "#home" },
+    { id: "a-propos", label: "À Propos", href: "#about" },
+    { id: "portfolio", label: "Portfolio", href: "#portfolio" },
+    { id: "nos-tarifs", label: "Nos Tarifs", href: "#pricing" },
+    { id: "contact", label: "Contact", href: "#contact" },
   ];
   console.log(logoFull);
 
@@ -43,7 +43,7 @@ const Header = () => {
             <a className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
               <div className="h-8">
-                <Image src={logoFull} alt="" height="32" />
+                <Image src={logoFull} alt="" height="32" width="100" />
               </div>
             </a>
           </div>
@@ -53,7 +53,7 @@ const Header = () => {
                 {links.map((link) => (
                   <li key={link.id}>
                     <a
-                      href="https://google.com"
+                      href={link.href}
                       className="text-white transition hover:text-gray-300"
                     >
                       {link.label}

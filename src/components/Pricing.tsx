@@ -66,7 +66,7 @@ export default function Pricing() {
     },
     {
       id: 1,
-      label: "Standart",
+      label: "Standard",
       "price-month": 69,
       "price-quarter": 189,
       discount: 10,
@@ -80,7 +80,7 @@ export default function Pricing() {
     },
     {
       id: 3,
-      label: "Buisness",
+      label: "Business",
       "price-month": 129,
       "price-quarter": 299,
       discount: 29,
@@ -95,7 +95,10 @@ export default function Pricing() {
     setIsChecked(!isChecked);
   };
   return (
-    <div className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 ">
+    <div
+      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8"
+      id="pricing"
+    >
       <h2 className="text-2xl font-bold sm:text-3xl text-center">
         Nos packages
       </h2>
