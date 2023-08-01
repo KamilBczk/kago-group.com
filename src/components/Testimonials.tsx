@@ -37,7 +37,10 @@ export default function Testimonials() {
 
           <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
             {reviews.map((review) => (
-              <blockquote className="rounded-lg bg-gray-100 p-8">
+              <blockquote
+                key={review.name}
+                className="rounded-lg bg-gray-100 p-8"
+              >
                 <div className="flex items-center gap-4">
                   <Image
                     alt={review.name}
