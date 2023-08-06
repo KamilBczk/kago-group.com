@@ -42,7 +42,7 @@ const Header = () => {
           <div className="flex-1 md:flex md:items-center md:gap-12">
             <a className="block text-teal-600" href="/">
               <span className="sr-only">Home</span>
-              <div className="h-8">
+              <div className="h-8 mb-3">
                 <Image src={logoFull} alt="" height="32" width="100" />
               </div>
             </a>
