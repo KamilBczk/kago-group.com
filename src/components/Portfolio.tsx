@@ -41,6 +41,7 @@ export default function Portfolio() {
       <div className="flex gap-4">
         {cases.map((caseElem) => (
           <a
+            key={caseElem.placeholderText}
             href={caseElem.href === false ? "#portfolio" : caseElem.href}
             target={caseElem.href === false ? "" : "_blank"}
           >
