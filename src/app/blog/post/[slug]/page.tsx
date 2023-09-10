@@ -5,7 +5,7 @@ import moment from "moment";
 export default async function Page({ params }: { params: { slug: string } }) {
   const parse = require("html-react-parser");
   const article = await getPostById(params.slug);
-  const nextAndPrev = await getPreviousAndNextPosts(article.createdAt);
+  const nextAndPrev: any = await getPreviousAndNextPosts(article.createdAt);
 
   return (
     <>

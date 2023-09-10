@@ -23,7 +23,7 @@ export default async function page() {
       </article>
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:py-12 sm:px-6 lg:py-16 lg:px-8">
         <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+          {posts.map((post: any) => (
             <BlogCard
               key={post.id}
               title={post.title}
