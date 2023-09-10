@@ -89,7 +89,7 @@ export default function Pricing() {
   function handleChangePlan(planToChange: number) {
     setSelectedPlan(planToChange);
   }
-  const [isChecked, setIsChecked] = useState(true);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
