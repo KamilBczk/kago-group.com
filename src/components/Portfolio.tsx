@@ -15,7 +15,7 @@ export default function Portfolio() {
     {
       image: recreATifs,
       placeholderText: "Récré à tifs",
-      href: false,
+      href: "#portfolio",
     },
     {
       image: tmfCompta,
@@ -25,7 +25,7 @@ export default function Portfolio() {
     {
       image: vasiConstruct,
       placeholderText: "Vasi Construct SRL",
-      href: false,
+      href: "#portfolio",
     },
   ];
 
@@ -42,8 +42,8 @@ export default function Portfolio() {
         {cases.map((caseElem) => (
           <a
             key={caseElem.placeholderText}
-            href={caseElem.href === false ? "#portfolio" : caseElem.href}
-            target={caseElem.href === false ? "" : "_blank"}
+            href={caseElem.href}
+            target={caseElem.href === "#portfolio" ? "" : "_blank"}
           >
             <div key={caseElem.href} className="relative overflow-hidden group">
               <Image
