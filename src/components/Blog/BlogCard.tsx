@@ -7,7 +7,7 @@ export default function BlogCard({
   createdAt,
   slug,
   featuredImage,
-}) {
+}: any) {
   return (
     <article className="relative overflow-hidden rounded-lg shadow transition hover:shadow-lg">
       <img
