@@ -31,7 +31,7 @@ export default function Portfolio() {
 
   return (
     <div
-      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8"
+      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 "
       id="portfolio"
     >
       <h2 className="text-2xl font-bold sm:text-3xl text-center my-5">
