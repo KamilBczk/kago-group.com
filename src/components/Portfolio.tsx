@@ -15,7 +15,7 @@ export default function Portfolio() {
     {
       image: recreATifs,
       placeholderText: "Récré à tifs",
-      href: "https://google.com",
+      href: false,
     },
     {
       image: tmfCompta,
@@ -25,7 +25,7 @@ export default function Portfolio() {
     {
       image: vasiConstruct,
       placeholderText: "Vasi Construct SRL",
-      href: "https://google.com",
+      href: false,
     },
   ];
 
@@ -40,19 +40,24 @@ export default function Portfolio() {
       {/* Première ligne */}
       <div className="flex gap-4">
         {cases.map((caseElem) => (
-          <div key={caseElem.href} className="relative overflow-hidden group">
-            <Image
-              src={caseElem.image}
-              alt=""
-              className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <p className="text-white text-lg font-bold">
-                {caseElem.placeholderText}
-              </p>
+          <a
+            href={caseElem.href === false ? "#portfolio" : caseElem.href}
+            target={caseElem.href === false ? "" : "_blank"}
+          >
+            <div key={caseElem.href} className="relative overflow-hidden group">
+              <Image
+                src={caseElem.image}
+                alt=""
+                className="h-full w-full object-cover rounded-lg transition-opacity duration-300"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="text-white text-lg font-bold">
+                  {caseElem.placeholderText}
+                </p>
+              </div>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>

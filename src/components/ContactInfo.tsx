@@ -21,6 +21,7 @@ export default function ContactInfo() {
       icon: FaLocationDot,
     },
   ];
+
   return (
     <section className="bg-white">
       <div className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 gap-8 items-center md:grid md:grid-cols-2">

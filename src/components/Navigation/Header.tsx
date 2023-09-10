@@ -1,42 +1,30 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import logoFull from "../../assets/logo/logo-full.svg";
 
 const Header = () => {
-  const [activeLink, setActiveLink] = useState("accueil");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleScroll = () => {
-    // La même logique de scroll que précédemment
-    // ...
-  };
-
-  useEffect(() => {
-    // Ajouter un écouteur d'événement pour le scroll
-    // ...
-  }, []);
-
-  const scrollToSection = (section: string) => {
-    // La même logique de scroll que précédemment
-    // ...
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
   const links = [
-    { id: "accueil", label: "Accueil", href: "#home" },
-    { id: "a-propos", label: "À Propos", href: "#about" },
-    { id: "portfolio", label: "Portfolio", href: "#portfolio" },
-    { id: "nos-tarifs", label: "Nos Tarifs", href: "#pricing" },
-    { id: "contact", label: "Contact", href: "#contact" },
+    { id: "accueil", label: "Accueil", href: "/#home" },
+    { id: "a-propos", label: "À Propos", href: "/#about" },
+    { id: "portfolio", label: "Portfolio", href: "/#portfolio" },
+    { id: "nos-tarifs", label: "Nos Tarifs", href: "/#pricing" },
+    { id: "nos-tarifs", label: "Blog", href: "/blog" },
+    { id: "contact", label: "Contact", href: "/#contact" },
   ];
-  console.log(logoFull);
 
   return (
-    <header className="fixed bg-black/[.3] w-full z-50">
+    <header
+      className={`fixed bg-black/[.3] w-full z-50 ${
+        isMenuOpen && "bg-kago-blue"
+      }`}
+    >
       <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex-1 md:flex md:items-center md:gap-12">
@@ -64,7 +52,10 @@ const Header = () => {
             </nav>
             <div className="flex items-center">
               <div className="block md:hidden">
-                <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+                <button
+                  onClick={toggleMenu}
+                  className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -85,6 +76,23 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {/* Afficher le menu si isMenuOpen est true */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-kago-blue text-white absolute w-full">
+          <ul className="py-4">
+            {links.map((link) => (
+              <li key={link.id} className="px-4 py-2">
+                <a
+                  href={link.href}
+                  className="text-white transition hover:text-gray-300"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </header>
   );
 };
