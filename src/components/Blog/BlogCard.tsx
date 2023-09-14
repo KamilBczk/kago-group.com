@@ -19,7 +19,7 @@ export default function BlogCard({
       <div className="relative bg-gradient-to-t from-gray-900/50 to-gray-900/25 pt-32 sm:pt-48 lg:pt-64">
         <div className="p-4 sm:p-6">
           <time dateTime="2022-10-10" className="block text-xs text-white/90">
-            {moment(createdAt).format("MM.DD.YYYY HH:mm")}
+            {moment(createdAt).format("DD.MM.YYYY")}
           </time>
 
           <a href={`/blog/post/${slug}`}>
