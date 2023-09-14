@@ -5,6 +5,7 @@ import Image from "next/image";
 import Head from "next/head";
 import BackgroundImage from "./bg.jpg";
 import { gql, request } from "graphql-request";
+import { getFeaturedPosts } from "@/services/blog";
 
 export default async function page() {
   const posts = await getFeaturedPosts();
@@ -42,30 +43,4 @@ export default async function page() {
       </div>
     </>
   );
-}
-
-const graphqlAPI: any = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
-
-async function getFeaturedPosts() {
-  try {
-    const query = gql`
-      query MyQuery {
-        posts(where: { featuredPost: true }, orderBy: updatedAt_DESC) {
-          id
-          createdAt
-          title
-          excerpt
-          slug
-          featuredImage {
-            url
-          }
-        }
-      }
-    `;
-    const results: any = await request(graphqlAPI, query);
-    return results.posts;
-  } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
-  }
 }
