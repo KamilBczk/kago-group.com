@@ -42,7 +42,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   <div className="font-medium text-white">
                     <p>{article.author.name}</p>
                     <p className="text-sm text-gray-300">
-                      {moment(article.createdAt).format("MM.DD.YYYY")}
+                      {moment(article.createdAt).format("DD.MM.YYYY")}
                     </p>
                   </div>
                 </div>
