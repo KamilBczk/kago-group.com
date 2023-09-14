@@ -1,3 +1,4 @@
+"use server";
 import BlogCard from "@/components/Blog/BlogCard";
 import React from "react";
 import Image from "next/image";
