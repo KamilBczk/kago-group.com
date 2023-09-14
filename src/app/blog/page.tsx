@@ -7,7 +7,7 @@ import { gql, request } from "graphql-request";
 import { getFeaturedPosts } from "@/services/blog";
 
 export default async function page() {
-  const posts = await getFeaturedPosts();
+  const posts = await getFeaturedPosts(true);
   return (
     <>
       <Head>

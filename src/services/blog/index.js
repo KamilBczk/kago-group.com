@@ -2,11 +2,11 @@ import { request, gql } from "graphql-request";
 // abc
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getFeaturedPosts = async () => {
+export const getFeaturedPosts = async (bool) => {
   try {
     const query = gql`
       query GetFeaturedPosts {
-        posts(where: { featuredPost: true }, orderBy: updatedAt_DESC) {
+        posts(where: { featuredPost: ${bool} }, orderBy: updatedAt_DESC) {
           id
           createdAt
           title
