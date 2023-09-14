@@ -6,7 +6,7 @@ export const getFeaturedPosts = async (bool) => {
   try {
     const query = gql`
       query GetFeaturedPosts {
-        posts(where: { featuredPost: ${bool} }, orderBy: updatedAt_DESC) {
+        posts(where: { featuredPost: ${bool} }, orderBy: createdAt_DESC) {
           id
           createdAt
           title
