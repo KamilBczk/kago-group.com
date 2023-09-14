@@ -2,30 +2,6 @@ import { request, gql } from "graphql-request";
 // abc
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getFeaturedPosts = async () => {
-  try {
-    const query = gql`
-      query MyQuery {
-        posts(where: { featuredPost: true }, orderBy: updatedAt_DESC) {
-          id
-          createdAt
-          title
-          excerpt
-          slug
-          featuredImage {
-            url
-          }
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts;
-  } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
-  }
-};
-
 export const getPostById = async (slug) => {
   try {
     const query = gql`
