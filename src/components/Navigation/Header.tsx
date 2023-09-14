@@ -15,7 +15,7 @@ const Header = () => {
     { id: "a-propos", label: "À Propos", href: "/#about" },
     { id: "portfolio", label: "Portfolio", href: "/#portfolio" },
     { id: "nos-tarifs", label: "Nos Tarifs", href: "/#pricing" },
-    { id: "nos-tarifs", label: "Blog", href: "/blog" },
+    { id: "blog", label: "Blog", href: "/blog" },
     { id: "contact", label: "Contact", href: "/#contact" },
   ];
 
