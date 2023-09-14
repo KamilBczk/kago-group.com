@@ -7,8 +7,15 @@ import BackgroundImage from "./bg.jpg";
 import { gql, request } from "graphql-request";
 import { getFeaturedPosts } from "@/services/blog";
 
+export async function generateMetadata() {
+  return {
+    title: "Découvrez nos articles",
+  };
+}
+
 export default async function Page() {
   const posts = await getFeaturedPosts();
+
   return (
     <>
       <Head>

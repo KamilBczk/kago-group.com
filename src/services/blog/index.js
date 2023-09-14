@@ -19,7 +19,6 @@ export const getFeaturedPosts = async () => {
       }
     `;
     const results = await request(graphqlAPI, query);
-    console.log("a");
     return results.posts;
   } catch (error) {
     console.error("Error fetching featured posts:", error);
@@ -50,6 +49,24 @@ export const getPostById = async (slug) => {
               url
             }
           }
+        }
+      }
+    `;
+    const results = await request(graphqlAPI, query);
+    return results.posts[0];
+  } catch (error) {
+    console.error("Error fetching featured posts:", error);
+    return [];
+  }
+};
+
+export const getTitlePostById = async (slug) => {
+  try {
+    const query = gql`
+      query MyQuery {
+        posts(where: { slug: "${slug}" }) {
+          id
+          title
         }
       }
     `;

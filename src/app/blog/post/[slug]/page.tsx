@@ -1,5 +1,9 @@
 import Contact from "@/components/Contact";
-import { getPostById, getPreviousAndNextPosts } from "@/services/blog/index";
+import {
+  getPostById,
+  getPreviousAndNextPosts,
+  getTitlePostById,
+} from "@/services/blog/index";
 import moment from "moment";
 import { Metadata } from "next";
 import Head from "next/head";
@@ -98,9 +102,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
   );
 }
 
-export async function generateMetadata() {
-  if (article != undefined)
-    return {
-      title: article.title,
-    };
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  let title = await getTitlePostById(params.slug);
+  return {
+    title: title.title,
+  };
 }
