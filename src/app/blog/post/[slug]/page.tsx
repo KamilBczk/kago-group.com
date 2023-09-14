@@ -1,17 +1,24 @@
 import Contact from "@/components/Contact";
 import { getPostById, getPreviousAndNextPosts } from "@/services/blog/index";
 import moment from "moment";
+import { Metadata } from "next";
+import Head from "next/head";
+
+let article: any;
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const parse = require("html-react-parser");
-  const article = await getPostById(params.slug);
+  article = await getPostById(params.slug);
   const nextAndPrev: any = await getPreviousAndNextPosts(article.createdAt);
 
   return (
     <>
+      <Head>
+        <title>{article.title} | Kago Group</title>
+      </Head>
       <div>
         {article != undefined ? (
-          <article className="relative overflow-hidden shadow transition">
+          <article className="relative overflow-hidden shadow transition ">
             <img
               alt="Office"
               src={article.coverImage.url}
@@ -89,4 +96,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
       </div>
     </>
   );
+}
+
+export async function generateMetadata() {
+  if (article != undefined)
+    return {
+      title: article.title,
+    };
 }

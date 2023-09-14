@@ -2,7 +2,7 @@ import { request, gql } from "graphql-request";
 // abc
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getFeaturedPosts = async () => {
+export const getFeaturedPosts = async (x) => {
   try {
     const query = gql`
       query MyQuery {

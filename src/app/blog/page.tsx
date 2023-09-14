@@ -1,13 +1,18 @@
+"use client";
 import BlogCard from "@/components/Blog/BlogCard";
 import React from "react";
 import { getFeaturedPosts } from "@/services/blog/index";
 import Image from "next/image";
+import Head from "next/head";
 import BackgroundImage from "./bg.jpg";
 
 export default async function page() {
-  const posts = (await getFeaturedPosts()) || [];
+  const posts = (await getFeaturedPosts("x")) || [];
   return (
     <>
+      <Head>
+        <title>Blog | Kago Group</title>
+      </Head>
       <article className="relative overflow-hidden shadow transition">
         <Image
           alt="Office"

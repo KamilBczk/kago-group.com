@@ -9,8 +9,12 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "KAGO GROUP - Accueil",
-  description: "Transformez votre présence en ligne avec KAGO - Votre partenaire pour une transformation digitale réussie. Fondée par des entrepreneurs passionnés, notre équipe expérimentée de développeurs, project managers et designers collabore étroitement avec vous pour créer des solutions sur mesure. De la création de sites web professionnels à la mise en place de stratégies de marketing numérique, découvrez comment nous pouvons faire de votre entreprise une marque à part entière. Rejoignez-nous dans cette aventure vers le succès digital.",
+  title: {
+    template: "%s | Kago Group",
+    default: "Kago Group",
+  },
+  description:
+    "Transformez votre présence en ligne avec KAGO - Votre partenaire pour une transformation digitale réussie. Fondée par des entrepreneurs passionnés, notre équipe expérimentée de développeurs, project managers et designers collabore étroitement avec vous pour créer des solutions sur mesure. De la création de sites web professionnels à la mise en place de stratégies de marketing numérique, découvrez comment nous pouvons faire de votre entreprise une marque à part entière. Rejoignez-nous dans cette aventure vers le succès digital.",
 };
 
 export default function RootLayout({

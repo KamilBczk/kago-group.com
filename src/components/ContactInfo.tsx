@@ -7,12 +7,12 @@ export default function ContactInfo() {
   const informationContact = [
     {
       id: "mail",
-      content: "contact@kago-group.com",
+      content: "info@kago-group.com",
       icon: MdEmail,
     },
     {
       id: "phone",
-      content: "+32 (0)4 84 44 69 93",
+      content: "+32 (0)4 93 48 45 04",
       icon: BsPhoneFill,
     },
     {
