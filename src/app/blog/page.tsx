@@ -7,7 +7,7 @@ import Head from "next/head";
 import BackgroundImage from "./bg.jpg";
 
 export default async function page() {
-  const posts = (await getFeaturedPosts("x")) || [];
+  const posts = (await getFeaturedPosts()) || [];
   return (
     <>
       <Head>
