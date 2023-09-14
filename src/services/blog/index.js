@@ -1,8 +1,11 @@
 import { request, gql } from "graphql-request";
-// abc
+import { cache } from "react";
+
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
-export const getFeaturedPosts = async (bool) => {
+export const revalidate = 60;
+
+export const getFeaturedPosts = cache(async (bool) => {
   try {
     const query = gql`
       query GetFeaturedPosts {
@@ -24,7 +27,7 @@ export const getFeaturedPosts = async (bool) => {
     console.error("Error fetching featured posts:", error);
     return [];
   }
-};
+});
 
 export const getPostById = async (slug) => {
   try {
