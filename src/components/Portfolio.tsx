@@ -4,6 +4,7 @@ import bildConstruct from "@/assets/portfolio/bild-construct.png";
 import recreATifs from "@/assets/portfolio/recre-a-tifs.png";
 import tmfCompta from "@/assets/portfolio/tmf-compta.png";
 import vasiConstruct from "@/assets/portfolio/vasi-construct.png";
+import eliteSolutions from "@/assets/portfolio/elite-solutions.png";
 
 export default function Portfolio() {
   const cases = [
@@ -22,10 +23,15 @@ export default function Portfolio() {
       placeholderText: "TMF Compta",
       href: "https://tmfcompta.be",
     },
+    // {
+    //   image: vasiConstruct,
+    //   placeholderText: "Vasi Construct SRL",
+    //   href: "#portfolio",
+    // },
     {
-      image: vasiConstruct,
-      placeholderText: "Vasi Construct SRL",
-      href: "#portfolio",
+      image: eliteSolutions,
+      placeholderText: "Elite Solutions",
+      href: "https://elite-solutions.be/",
     },
   ];
 
