@@ -60,13 +60,14 @@ export const getPostById = async (slug) => {
   }
 };
 
-export const getTitlePostById = async (slug) => {
+export const getSeoPostById = async (slug) => {
   try {
     const query = gql`
       query MyQuery {
         posts(where: { slug: "${slug}" }) {
           id
           title
+          excerpt
         }
       }
     `;
@@ -82,7 +83,7 @@ export const getPreviousAndNextPosts = async (createdAt) => {
   try {
     const nextPost = gql`
       query MyQuery {
-        posts(where: {createdAt_gt: "${createdAt}"}, first: 1) {
+        posts(where: {createdAt_gt: "${createdAt}", featuredPost: true}, first: 1) {
           title
           slug
         }
@@ -92,7 +93,7 @@ export const getPreviousAndNextPosts = async (createdAt) => {
 
     const previousPost = gql`
       query MyQuery {
-        posts(where: {createdAt_lt: "${createdAt}"}, first: 1, orderBy: publishedAt_DESC) {
+        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: publishedAt_DESC) {
           title
           slug
         }

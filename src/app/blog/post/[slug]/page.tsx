@@ -2,7 +2,7 @@ import Contact from "@/components/Contact";
 import {
   getPostById,
   getPreviousAndNextPosts,
-  getTitlePostById,
+  getSeoPostById,
 } from "@/services/blog/index";
 import moment from "moment";
 import { Metadata } from "next";
@@ -103,8 +103,9 @@ export default async function Page({ params }: { params: { slug: string } }) {
 }
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  let title = await getTitlePostById(params.slug);
+  let title = await getSeoPostById(params.slug);
   return {
     title: title.title,
+    description: title.excerpt,
   };
 }
