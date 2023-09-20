@@ -6,7 +6,11 @@ export const getFeaturedPosts = async () => {
   try {
     const query = gql`
       query GetFeaturedPosts {
-        posts(where: { featuredPost: true }, orderBy: createdAt_DESC) {
+        posts(
+          where: { featuredPost: true }
+          orderBy: createdAt_DESC
+          first: 25
+        ) {
           id
           createdAt
           title
