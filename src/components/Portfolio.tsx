@@ -8,21 +8,21 @@ import eliteSolutions from "@/assets/portfolio/elite-solutions.png";
 
 export default function Portfolio() {
   const cases = [
-    {
-      image: bildConstruct,
-      placeholderText: "Bild Construct SRL",
-      href: "https://bildconstructsrl.com",
-    },
-    {
-      image: recreATifs,
-      placeholderText: "Récré à tifs",
-      href: "#portfolio",
-    },
-    {
-      image: tmfCompta,
-      placeholderText: "TMF Compta",
-      href: "https://tmfcompta.be",
-    },
+    // {
+    //   image: bildConstruct,
+    //   placeholderText: "Bild Construct SRL",
+    //   href: "https://bildconstructsrl.com",
+    // },
+    // {
+    //   image: recreATifs,
+    //   placeholderText: "Récré à tifs",
+    //   href: "#portfolio",
+    // },
+    // {
+    //   image: tmfCompta,
+    //   placeholderText: "TMF Compta",
+    //   href: "https://tmfcompta.be",
+    // },
     // {
     //   image: vasiConstruct,
     //   placeholderText: "Vasi Construct SRL",
