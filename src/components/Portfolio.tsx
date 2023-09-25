@@ -8,36 +8,36 @@ import eliteSolutions from "@/assets/portfolio/elite-solutions.png";
 
 export default function Portfolio() {
   const cases = [
-    // {
-    //   image: bildConstruct,
-    //   placeholderText: "Bild Construct SRL",
-    //   href: "https://bildconstructsrl.com",
-    // },
-    // {
-    //   image: recreATifs,
-    //   placeholderText: "Récré à tifs",
-    //   href: "#portfolio",
-    // },
-    // {
-    //   image: tmfCompta,
-    //   placeholderText: "TMF Compta",
-    //   href: "https://tmfcompta.be",
-    // },
-    // {
-    //   image: vasiConstruct,
-    //   placeholderText: "Vasi Construct SRL",
-    //   href: "#portfolio",
-    // },
     {
-      image: eliteSolutions,
-      placeholderText: "Elite Solutions",
-      href: "https://elite-solutions.be/",
+      image: bildConstruct,
+      placeholderText: "Bild Construct SRL",
+      href: "https://bildconstructsrl.com",
     },
+    {
+      image: recreATifs,
+      placeholderText: "Récré à tifs",
+      href: "#portfolio",
+    },
+    {
+      image: tmfCompta,
+      placeholderText: "TMF Compta",
+      href: "https://tmfcompta.be",
+    },
+    {
+      image: vasiConstruct,
+      placeholderText: "Vasi Construct SRL",
+      href: "#portfolio",
+    },
+    // {
+    //   image: eliteSolutions,
+    //   placeholderText: "Elite Solutions",
+    //   href: "https://elite-solutions.be/",
+    // },
   ];
 
   return (
     <div
-      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 "
+      className="my-16 mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8"
       id="portfolio"
     >
       <h2 className="text-2xl font-bold sm:text-3xl text-center my-5">
