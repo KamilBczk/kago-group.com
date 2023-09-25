@@ -12,7 +12,7 @@ export default function ContactInfo() {
     },
     {
       id: "phone",
-      content: "+32 (0)4 93 48 45 04",
+      content: "+32 (0)4 84 44 69 93",
       icon: BsPhoneFill,
     },
     {
