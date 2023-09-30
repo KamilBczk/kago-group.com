@@ -97,7 +97,7 @@ export const getPreviousAndNextPosts = async (createdAt) => {
 
     const previousPost = gql`
       query MyQuery {
-        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: publishedAt_DESC) {
+        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: publishedAt_ASC) {
           title
           slug
         }
