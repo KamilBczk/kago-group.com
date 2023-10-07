@@ -9,7 +9,7 @@ export const getFeaturedPosts = async () => {
         posts(
           where: { featuredPost: true }
           orderBy: createdAt_DESC
-          first: 25
+          first: 6
         ) {
           id
           createdAt
@@ -97,12 +97,13 @@ export const getPreviousAndNextPosts = async (createdAt) => {
 
     const previousPost = gql`
       query MyQuery {
-        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: publishedAt_ASC) {
+        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: createdAt_DESC) {
           title
           slug
         }
       }
     `;
+    console.log(createdAt);
     const prevRes = await request(graphqlAPI, previousPost);
 
     const toReturn = {
@@ -118,6 +119,34 @@ export const getPreviousAndNextPosts = async (createdAt) => {
     return toReturn;
   } catch (error) {
     console.error("Error fetching next & prev posts:", error);
+    return [];
+  }
+};
+
+export const getPostByCategory = async (slug) => {
+  try {
+    const query = gql`
+      query MyQuery {
+        posts(
+          where: {categories_every: {slug: "${slug}"}, featuredPost: true}
+          orderBy: createdAt_DESC
+          first: 6
+        ) {
+          id
+          title
+          slug
+          excerpt
+          createdAt
+          author {
+            name
+          }
+        }
+      }
+    `;
+    const results = await request(graphqlAPI, query);
+    return results.posts;
+  } catch (error) {
+    console.error("Error fetching featured posts:", error);
     return [];
   }
 };
