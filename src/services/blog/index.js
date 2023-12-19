@@ -150,3 +150,25 @@ export const getPostByCategory = async (slug) => {
     return [];
   }
 };
+
+export const getAllFeaturedPostsForSitemap = async () => {
+  try {
+    const query = gql`
+      query GetFeaturedPosts {
+        posts(
+          where: { featuredPost: true }
+          orderBy: createdAt_DESC
+          first: 10000
+        ) {
+          slug
+          updatedAt
+        }
+      }
+    `;
+    const results = await request(graphqlAPI, query);
+    return results.posts;
+  } catch (error) {
+    console.error("Error fetching featured posts:", error);
+    return [];
+  }
+};
