@@ -20,7 +20,7 @@ export default async function sitemap() {
   ];
   posts.forEach((elem) => {
     let tmp = {
-      url: "https://www.kago-group.com/blog/post/" + elem.slug,
+      url: "https://kago-group.com/blog/post/" + elem.slug,
       lastModified: elem.updatedAt,
       changeFrequency: "weekly",
       priority: 0.5,
