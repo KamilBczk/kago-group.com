@@ -5,7 +5,11 @@ import Image from "next/image";
 import Head from "next/head";
 import BackgroundImage from "./bg.jpg";
 import { gql, request } from "graphql-request";
-import { getFeaturedPosts, getPostByCategory } from "@/services/blog";
+import {
+  getFeaturedPosts,
+  getPostByCategory,
+  logConsole,
+} from "@/services/blog";
 import BlogMinifiedCard from "@/components/Blog/BlogMinifiedCard";
 
 export async function generateMetadata() {
@@ -18,7 +22,7 @@ export default async function Page() {
   const posts = await getFeaturedPosts();
   const webDesignPosts = await getPostByCategory("web-design");
   const websitePosts = await getPostByCategory("site-web");
-
+  logConsole("/blog");
   return (
     <>
       <Head>

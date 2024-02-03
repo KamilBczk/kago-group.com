@@ -7,6 +7,7 @@ import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import ContactInfo from "@/components/ContactInfo";
 import { Metadata } from "next";
+import { logConsole } from "@/services/blog";
 
 // either Static metadata
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  logConsole("/");
   return (
     <>
       <HeroSection />

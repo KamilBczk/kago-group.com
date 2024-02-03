@@ -3,6 +3,7 @@ import {
   getPostById,
   getPreviousAndNextPosts,
   getSeoPostById,
+  logConsole,
 } from "@/services/blog/index";
 import moment from "moment";
 import { Metadata } from "next";
@@ -13,6 +14,7 @@ let article: any;
 export default async function Page({ params }: { params: { slug: string } }) {
   const parse = require("html-react-parser");
   article = await getPostById(params.slug);
+  logConsole("/blog/post/" + params.slug);
   const nextAndPrev: any = await getPreviousAndNextPosts(article.createdAt);
 
   return (
