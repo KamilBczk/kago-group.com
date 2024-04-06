@@ -20,8 +20,8 @@ export async function generateMetadata() {
 
 export default async function Page() {
   const posts = await getFeaturedPosts();
-  const webDesignPosts = await getPostByCategory("web-design");
-  const websitePosts = await getPostByCategory("site-web");
+  const webDesignPosts = await getPostByCategory("660a8f1c8cf5c6efcb9abf1a");
+  const websitePosts = await getPostByCategory("660a8f438cf5c6efcb9abf1c");
   logConsole("/blog");
   return (
     <>
@@ -30,7 +30,7 @@ export default async function Page() {
       </Head>
       <article className="relative overflow-hidden shadow transition">
         <Image
-          alt="Office"
+          alt="Book"
           src={BackgroundImage}
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -52,7 +52,7 @@ export default async function Page() {
               excerpt={post.excerpt}
               createdAt={post.createdAt}
               slug={post.slug}
-              featuredImage={post.featuredImage.url}
+              featuredImage={post.featuredImage}
             />
           ))}
         </div>

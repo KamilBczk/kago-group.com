@@ -1,152 +1,69 @@
+import axios from "axios";
 import { request, gql } from "graphql-request";
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getFeaturedPosts = async () => {
+  const apiUrl = process.env.API_URL;
   try {
-    const query = gql`
-      query GetFeaturedPosts {
-        posts(
-          where: { featuredPost: true }
-          orderBy: createdAt_DESC
-          first: 6
-        ) {
-          id
-          createdAt
-          title
-          excerpt
-          slug
-          featuredImage {
-            url
-          }
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts;
+    const response = await axios.get(`${apiUrl}kago-group/posts/latest/6`);
+    return response.data.posts;
   } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
+    console.error("Error fetching post by slug:", error);
   }
 };
 
-export const getPostById = async (slug) => {
+export const getPostBySlug = async (slug) => {
+  const apiUrl = process.env.API_URL;
   try {
-    const query = gql`
-      query MyQuery {
-        posts(where: { slug: "${slug}" }) {
-          id
-          title
-          createdAt
-          excerpt
-          slug
-          updatedAt
-          content {
-            html
-          }
-          coverImage {
-            url
-          }
-          author {
-            name
-            photo {
-              url
-            }
-          }
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts[0];
+    const response = await axios.get(
+      `${apiUrl}kago-group/posts/post/slug/${slug}`
+    );
+    return response.data.post;
   } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
+    console.error("Error fetching post by slug:", error);
   }
 };
 
-export const getSeoPostById = async (slug) => {
+export const getPreviousAndNextPosts = async (slug) => {
+  const apiUrl = process.env.API_URL;
+  let prevPost = null;
+  let nextPost = null;
+
   try {
-    const query = gql`
-      query MyQuery {
-        posts(where: { slug: "${slug}" }) {
-          id
-          title
-          excerpt
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts[0];
+    const prevPostResponse = await axios.get(
+      `${apiUrl}kago-group/posts/post/slug/${slug}/previous`
+    );
+    prevPost = prevPostResponse.data.post;
   } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
+    if (error.response && error.response.status !== 404) {
+      console.error("Error fetching previous post by slug:", error);
+    }
   }
+
+  try {
+    const nextPostResponse = await axios.get(
+      `${apiUrl}kago-group/posts/post/slug/${slug}/next`
+    );
+    nextPost = nextPostResponse.data.post;
+  } catch (error) {
+    if (error.response && error.response.status !== 404) {
+      console.error("Error fetching next post by slug:", error);
+    }
+  }
+
+  return { prevPost, nextPost };
 };
 
-export const getPreviousAndNextPosts = async (createdAt) => {
+export const getPostByCategory = async (category) => {
+  const apiUrl = process.env.API_URL;
   try {
-    const nextPost = gql`
-      query MyQuery {
-        posts(where: {createdAt_gt: "${createdAt}", featuredPost: true}, first: 1) {
-          title
-          slug
-        }
-      }
-    `;
-    const nextRes = await request(graphqlAPI, nextPost);
-
-    const previousPost = gql`
-      query MyQuery {
-        posts(where: {createdAt_lt: "${createdAt}", featuredPost: true}, first: 1, orderBy: createdAt_DESC) {
-          title
-          slug
-        }
-      }
-    `;
-    const prevRes = await request(graphqlAPI, previousPost);
-
-    const toReturn = {
-      next: {
-        title: nextRes.posts.length === 0 ? null : nextRes.posts[0].title,
-        slug: nextRes.posts.length === 0 ? null : nextRes.posts[0].slug,
-      },
-      prev: {
-        title: prevRes.posts.length === 0 ? null : prevRes.posts[0].title,
-        slug: prevRes.posts.length === 0 ? null : prevRes.posts[0].slug,
-      },
-    };
-    return toReturn;
+    const response = await axios.post(`${apiUrl}kago-group/posts/latest/6`, {
+      category: category,
+    });
+    return response.data.posts;
   } catch (error) {
-    console.error("Error fetching next & prev posts:", error);
-    return [];
-  }
-};
-
-export const getPostByCategory = async (slug) => {
-  try {
-    const query = gql`
-      query MyQuery {
-        posts(
-          where: {categories_every: {slug: "${slug}"}, featuredPost: true}
-          orderBy: createdAt_DESC
-          first: 6
-        ) {
-          id
-          title
-          slug
-          excerpt
-          createdAt
-          author {
-            name
-          }
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts;
-  } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
+    console.error("Error fetching post by slug:", error);
   }
 };
 
