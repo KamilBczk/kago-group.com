@@ -19,9 +19,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <>
       <div>
-        {!article ? (
+        {article ? (
           <article className="relative overflow-hidden shadow transition ">
             <img
+              alt=""
               src={article.coverImage}
               className="absolute inset-0 h-full w-full object-cover"
             />
