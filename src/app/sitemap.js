@@ -1,5 +1,4 @@
 "use server";
-import { MetadataRoute } from "next";
 import { getAllFeaturedPostsForSitemap } from "../services/blog/index";
 
 export default async function sitemap() {
@@ -27,6 +26,5 @@ export default async function sitemap() {
     };
     sitemapResult.push(tmp);
   });
-  console.log(posts);
   return sitemapResult;
 }

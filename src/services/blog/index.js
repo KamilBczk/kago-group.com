@@ -68,24 +68,12 @@ export const getPostByCategory = async (category) => {
 };
 
 export const getAllFeaturedPostsForSitemap = async () => {
+  const apiUrl = process.env.API_URL;
   try {
-    const query = gql`
-      query GetFeaturedPosts {
-        posts(
-          where: { featuredPost: true }
-          orderBy: createdAt_DESC
-          first: 10000
-        ) {
-          slug
-          updatedAt
-        }
-      }
-    `;
-    const results = await request(graphqlAPI, query);
-    return results.posts;
+    const response = await axios.get(`${apiUrl}kago-group/posts/sitemap`);
+    return response.data.posts;
   } catch (error) {
-    console.error("Error fetching featured posts:", error);
-    return [];
+    console.error("Error fetching post by slug:", error);
   }
 };
 
