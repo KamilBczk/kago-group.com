@@ -18,7 +18,6 @@ export default function Home() {
   logConsole("/");
   return (
     <>
-      <h1>Test</h1>
       <HeroSection />
       <About />
       <OurServices />
