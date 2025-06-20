@@ -10,5 +10,6 @@ export default async function sitemap() {
       changeFrequency: "weekly",
       priority: 1,
     },
+  ]
   return sitemapResult;
 }
