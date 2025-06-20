@@ -10,21 +10,5 @@ export default async function sitemap() {
       changeFrequency: "weekly",
       priority: 1,
     },
-    {
-      url: "https://kago-group.com/blog",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-  ];
-  posts.forEach((elem) => {
-    let tmp = {
-      url: "https://kago-group.com/blog/post/" + elem.slug,
-      lastModified: elem.updatedAt,
-      changeFrequency: "weekly",
-      priority: 0.5,
-    };
-    sitemapResult.push(tmp);
-  });
   return sitemapResult;
 }
